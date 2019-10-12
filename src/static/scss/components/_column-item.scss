@@ -1,0 +1,14 @@
+.column-item {
+  border-radius: $radius-primary;
+  border: 2px dashed $color-primary;
+  padding: 10px;
+  width: 30%;
+
+  &__heading {
+    margin-bottom: 0;
+  }
+
+  &__ol {
+
+  }
+}

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 @import 'vendors/bootstrap/bootstrap';
 
@@ -9,7 +10,8 @@
 @import 'base/_base',
         'base/_typo';
 
-@import 'components/_buttons';
+@import 'components/_buttons',
+        'components/_column-item';
 
 @import 'layout/_grid',
         'layout/_main-header';

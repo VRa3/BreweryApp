@@ -18,6 +18,9 @@ $colors: (
                 white-2: rgb(221, 221, 221),
                 white-3: rgb(188, 188, 188),
         ),
+        blue: (
+                grayish: rgb(88, 98, 139), // $color-primary
+        ),
         custom: (
                 facebook: rgb(97, 143, 239),
                 g-plus: rgb(235, 104, 104),
@@ -71,3 +74,9 @@ $color-white: #fff;
 $color-black: #000;
 
 $color-background: setColor(white, white-2);
+
+$color-primary: setColor(blue, grayish);
+
+// BORDERS
+
+$radius-primary: 8px;
