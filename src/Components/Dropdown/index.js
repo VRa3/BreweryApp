@@ -1,6 +1,6 @@
 import React from 'react';
 import Chevron from "../SVGs/Chevron";
-import ListItem from "../ProductsList/ListItem";
+import ListItem from "./ListItem";
 
 class Dropdown extends React.Component {
   state = {

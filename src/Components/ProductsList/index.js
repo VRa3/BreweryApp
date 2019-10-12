@@ -1,10 +1,10 @@
 import React from 'react';
-import ListItem from "./ListItem";
+import Product from "./Product";
 
 const ProductsList = () => {
   return (
     <ol className='products-list'>
-      <ListItem/>
+      <Product/>
     </ol>
   )
 };

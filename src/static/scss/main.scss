@@ -5,14 +5,16 @@
 
 @import 'abstracts/_variables',
         'abstracts/_mixins',
-        'abstracts/_helpers';
+        'abstracts/_helpers',
+        'abstracts/_shame';
 
 @import 'base/_base',
         'base/_typo';
 
 @import 'components/_buttons',
         'components/_column-item',
-        'components/_dropdown';
+        'components/_dropdown',
+        'components/_product-card';
 
 @import 'layout/_grid',
         'layout/_main-header';
