@@ -5,7 +5,21 @@ import BrewerColumn from "./Components/BrewerColumn";
 
 class App extends React.Component {
   state = {
-    apiData: {}
+    apiData: {},
+    dataFetched: false,
+  };
+
+  createBrewersList = () => {
+    const {apiData} = this.state;
+    const brewersArray = [];
+
+    for (let beer in apiData) {
+      brewersArray.push(apiData[beer].brewer)
+    }
+
+    const brewersSet = [...new Set(brewersArray)]; // Contains unique Brewers name
+
+    console.log(brewersSet);
   };
 
   componentDidMount() {
@@ -13,8 +27,10 @@ class App extends React.Component {
     fetch(`/products/`)
       .then(resp => resp.json())
       .then(resp => {
-        this.setState({apiData: resp});
-        console.log(this.state.apiData)
+        this.setState({
+          apiData: resp,
+          dataFetched: true
+        });
       })
       .catch((error) => {
         console.log(error)
@@ -22,12 +38,19 @@ class App extends React.Component {
   }
 
   render() {
+
+    if (this.state.dataFetched) {
+      this.createBrewersList()
+    }
+
     return (
       <div className='content'>
         <div className='container'>
           <MainHeader/>
 
           <div>
+            <button onClick={this.createBrewersList}>Sortuj piwowarów</button>
+
             <BrewerColumn/>
           </div>
         </div>
