@@ -5,7 +5,8 @@ import ListItem from "./ListItem";
 class Dropdown extends React.Component {
   state = {
     listOpen: false,
-    headerTitle: this.props.title || 'Select brewer',
+    userHasSelected: false,
+    headerTitle: 'Select brewer',
   };
 
   dropdownToggle = () => {
@@ -15,6 +16,8 @@ class Dropdown extends React.Component {
   selectOption = item => {
     const value = item.target.innerHTML;
     this.setState({ headerTitle: value, listOpen: false })
+
+    this.props.loadBeers(value);
   };
 
   populateDropdownOptions = () => {
@@ -24,7 +27,7 @@ class Dropdown extends React.Component {
   };
 
   render() {
-    const { headerTitle, listOpen } = this.state;
+    const { headerTitle, listOpen, userHasSelected } = this.state;
 
     return (
       <div className='dropdown'>

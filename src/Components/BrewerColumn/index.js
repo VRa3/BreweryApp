@@ -7,18 +7,18 @@ class BrewerColumn extends React.Component {
     super(props);
 
     this.state = {
-      test: true,
+      brewerName: ''
     }
   }
+
+  loadBeers = brewer => {
+    this.setState({ brewerName: brewer })
+  };
 
   render() {
     return (
       <section className='column-item'>
-        <Dropdown brewersList={this.props.brewersList}/>
-
-        <h4 className="small-heading column-item__heading">
-          Hello
-        </h4>
+        <Dropdown loadBeers={this.loadBeers} brewersList={this.props.brewersList}/>
 
         <ProductsList/>
       </section>
