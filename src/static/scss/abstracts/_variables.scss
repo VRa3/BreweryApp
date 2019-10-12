@@ -1,0 +1,73 @@
+//   Colors  //
+//      '   //
+//     '   //
+//    \/  //
+
+$colors: (
+        black: (
+                base: rgb(0, 0, 0),
+                medium: rgb(54, 54, 54),
+                light: rgb(75, 75, 75),
+                grayish: rgb(88, 88, 88),
+                light-gray: rgb(125, 125, 125),
+                very-light: rgb(140, 140, 140),
+        ),
+        white: (
+                base: rgb(250, 251, 252),
+                white-1: rgb(238, 238, 238),
+                white-2: rgb(221, 221, 221),
+                white-3: rgb(188, 188, 188),
+        ),
+        custom: (
+                facebook: rgb(97, 143, 239),
+                g-plus: rgb(235, 104, 104),
+                positive: rgb(161, 223, 127),
+                sandy: rgb(255, 253, 188),
+        )
+);
+@function setColor($scheme, $tone: base) {
+  @return map-get(map-get($colors, $scheme), $tone);
+}
+
+// Font weights //
+//      '      //
+//     '      //
+//    \/     //
+
+$weights: (
+        light: 300,
+        regular: 400,
+        medium: 500,
+        bold: 700,
+        black: 900
+);
+@function setWeight($weight: regular) {
+  @return map-get($weights, $weight);
+}
+
+// Grid breakpoints //
+//      '      //
+//     '      //
+//    \/     //
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1600px
+);
+
+// Variables //
+//      '   //
+//     '   //
+//    \/  //
+
+
+// COLORS
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-background: setColor(white, white-2);

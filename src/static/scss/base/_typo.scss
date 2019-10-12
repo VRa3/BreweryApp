@@ -1,0 +1,8 @@
+.primary-heading {
+  @include Amatic-font;
+  font-size: 36px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 48px;
+  }
+}
