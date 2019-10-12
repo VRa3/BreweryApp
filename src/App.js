@@ -5,8 +5,9 @@ import BrewerColumn from "./Components/BrewerColumn";
 
 class App extends React.Component {
   state = {
-    apiData: {},
     dataFetched: false,
+    apiData: {},
+    brewersList: []
   };
 
   createBrewersList = () => {
@@ -19,7 +20,7 @@ class App extends React.Component {
 
     const brewersSet = [...new Set(brewersArray)]; // Contains unique Brewers name
 
-    console.log(brewersSet);
+    this.setState({ brewersList: brewersSet })
   };
 
   componentDidMount() {
@@ -37,11 +38,14 @@ class App extends React.Component {
       })
   }
 
-  render() {
-
-    if (this.state.dataFetched) {
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { dataFetched, brewersList } = this.state;
+    if (dataFetched === true && brewersList.length === 0) {
       this.createBrewersList()
     }
+  }
+
+  render() {
 
     return (
       <div className='content'>
@@ -49,9 +53,7 @@ class App extends React.Component {
           <MainHeader/>
 
           <div>
-            <button onClick={this.createBrewersList}>Sortuj piwowarów</button>
-
-            <BrewerColumn/>
+            <BrewerColumn brewersList={this.state.brewersList}/>
           </div>
         </div>
       </div>

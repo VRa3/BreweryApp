@@ -2,9 +2,7 @@ import React from 'react';
 
 const ListItem = props => {
   return(
-    <li>
-      Test
-    </li>
+    <li onClick={props.selectOption}>{props.brewerName}</li>
   )
 };
 

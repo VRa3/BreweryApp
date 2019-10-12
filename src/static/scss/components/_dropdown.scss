@@ -1,0 +1,36 @@
+.dropdown {
+  position: relative;
+
+  &__header {
+
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 10px;
+    background-color: $color-white;
+    font-size: 16px;
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-height: 140px; // 5x 28px (height of <li>)
+    list-style-type: none;
+
+    > li {
+      background-color: $color-primary;
+      padding: 6px 10px;
+      color: $color-white;
+      font-size: 14px;
+    }
+  }
+}
