@@ -7,7 +7,7 @@ const ProductsList = props => {
       { props.beersList.map((beer, ndx) => {
         if ( ndx < ( 15 * props.multiplier ) ) {
           return <Product key={beer.product_id} {...beer} />
-        }})
+        } return null })
       }
     </ol>
   )
