@@ -1,10 +1,14 @@
 import React from 'react';
 import Product from "./Product";
 
-const ProductsList = () => {
+const ProductsList = props => {
   return (
     <ol className='products-list'>
-      <Product/>
+      { props.beersList.map( beer => {
+        return (
+          <Product key={beer.product_id} {...beer} />
+        )
+      } ) }
     </ol>
   )
 };

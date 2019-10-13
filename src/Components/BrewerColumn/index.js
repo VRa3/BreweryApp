@@ -14,14 +14,13 @@ class BrewerColumn extends React.Component {
   }
 
   loadBeers = brewer => {
-    const { apiData, beersList } = this.state;
+    const { apiData } = this.state;
 
-    this.setState({ brewerName: brewer }, () => {
-      for (let beer in apiData) {
-        if (apiData[beer].brewer === brewer) {
-          beersList.push(apiData[beer])
-        }
-      }
+    const filteredBeersArray = apiData.filter(item => item.brewer === brewer);
+
+    this.setState({
+      brewerName: brewer,
+      beersList: filteredBeersArray
     });
   };
 
@@ -39,7 +38,7 @@ class BrewerColumn extends React.Component {
       <section className='column-item'>
         <Dropdown loadBeers={this.loadBeers} brewersList={this.props.brewersList}/>
 
-        <ProductsList/>
+        <ProductsList beersList={this.state.beersList}/>
       </section>
     )
   }
