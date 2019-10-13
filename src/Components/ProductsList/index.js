@@ -5,10 +5,8 @@ const ProductsList = props => {
   return (
     <ol className='products-list'>
       { props.beersList.map((beer, ndx) => {
-        if ( (ndx * 1) < 15 ) {
-          return (
-            <Product key={beer.product_id} {...beer} />
-          )
+        if ( ndx < ( 15 * props.multiplier ) ) {
+          return <Product key={beer.product_id} {...beer} />
         }})
       }
     </ol>

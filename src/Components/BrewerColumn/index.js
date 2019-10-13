@@ -9,7 +9,8 @@ class BrewerColumn extends React.Component {
     this.state = {
       brewerName: '',
       apiData: this.props.apiData,
-      beersList: []
+      beersList: [],
+      loaderMultiplier: 1 // This number is multiplied by 15 inside ProductsList component
     }
   }
 
@@ -21,7 +22,7 @@ class BrewerColumn extends React.Component {
       return 1;
     }
       return 0;
-    }
+  };
 
   loadBeers = brewer => {
     const { apiData } = this.state;
@@ -32,8 +33,13 @@ class BrewerColumn extends React.Component {
 
     this.setState({
       brewerName: brewer,
-      beersList: filteredBeersArray
+      beersList: filteredBeersArray,
+      loaderMultiplier: 1
     });
+  };
+
+  increaseMultiplier = () => {
+    this.setState({loaderMultiplier: this.state.loaderMultiplier + 1});
   };
 
   componentDidUpdate() {
@@ -50,7 +56,9 @@ class BrewerColumn extends React.Component {
       <section className='column-item'>
         <Dropdown loadBeers={this.loadBeers} brewersList={this.props.brewersList}/>
 
-        <ProductsList beersList={this.state.beersList}/>
+        <ProductsList multiplier={this.state.loaderMultiplier} beersList={this.state.beersList}/>
+
+        <button className='column-item__load-button' onClick={this.increaseMultiplier}>Load more</button>
       </section>
     )
   }
