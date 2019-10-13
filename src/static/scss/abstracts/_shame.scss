@@ -3,3 +3,23 @@
   padding: 0;
   list-style-type: none;
 }
+
+.back-drop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(48, 49, 48, 0.42);
+  transition: all 1.3s;
+  cursor: pointer;
+}
+
+.open-modal-btn {
+  margin: 15px;
+  padding: 10px;
+  font-weight: bold;
+}

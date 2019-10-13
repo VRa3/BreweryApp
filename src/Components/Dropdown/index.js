@@ -15,7 +15,7 @@ class Dropdown extends React.Component {
 
   selectOption = item => {
     const value = item.target.innerHTML;
-    this.setState({ headerTitle: value, listOpen: false })
+    this.setState({ headerTitle: value, listOpen: false });
 
     this.props.loadBeers(value);
   };

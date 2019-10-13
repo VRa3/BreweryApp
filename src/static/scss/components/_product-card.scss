@@ -9,10 +9,12 @@
   }
 
   &__thumbnail {
+    flex-shrink: 0;
     margin-right: 10px;
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    cursor: pointer;
   }
 
   &__text-block {

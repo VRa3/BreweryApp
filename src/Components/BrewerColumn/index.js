@@ -52,13 +52,18 @@ class BrewerColumn extends React.Component {
   }
 
   render() {
+    const { beersList, loaderMultiplier } = this.state;
+
     return (
       <section className='column-item'>
         <Dropdown loadBeers={this.loadBeers} brewersList={this.props.brewersList}/>
 
-        <ProductsList multiplier={this.state.loaderMultiplier} beersList={this.state.beersList}/>
+        <ProductsList multiplier={loaderMultiplier} beersList={beersList}/>
 
-        <button className='column-item__load-button' onClick={this.increaseMultiplier}>Load more</button>
+        { beersList.length > ( loaderMultiplier * 15 ) ?
+          <button className='column-item__load-button' onClick={this.increaseMultiplier}>Load more</button>
+          : null
+        }
       </section>
     )
   }
