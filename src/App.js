@@ -23,6 +23,18 @@ class App extends React.Component {
     this.setState({ brewersList: brewersSet })
   };
 
+  createColumnsWithApi = () => {
+    const { brewersList, apiData } = this.state;
+
+    return [1, 2, 3].map(id => <BrewerColumn key={id} id={id} apiData={apiData} brewersList={brewersList}/> )
+  };
+
+  createColumn = () => {
+    const { brewersList } = this.state;
+
+    return [1, 2, 3].map(id => <BrewerColumn key={id} brewersList={brewersList}/> )
+  };
+
   componentDidMount() {
     // Fetch URL is coming from package.json -> http://ontariobeerapi.ca/
     fetch(`/products/`)
@@ -54,11 +66,11 @@ class App extends React.Component {
         <div className='container'>
           <MainHeader/>
 
-          <div>
+          <div className='column-row'>
             { dataFetched ?
-              <BrewerColumn apiData={apiData} brewersList={brewersList}/>
+              this.createColumnsWithApi()
             :
-              <BrewerColumn brewersList={brewersList}/>
+              this.createColumn()
             }
 
           </div>

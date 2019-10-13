@@ -2,3 +2,10 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+
+.column-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

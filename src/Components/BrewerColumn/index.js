@@ -56,7 +56,7 @@ class BrewerColumn extends React.Component {
 
     return (
       <section className='column-item'>
-        <Dropdown loadBeers={this.loadBeers} brewersList={this.props.brewersList}/>
+        <Dropdown columnId={this.props.id} loadBeers={this.loadBeers} brewersList={this.props.brewersList}/>
 
         <ProductsList multiplier={loaderMultiplier} beersList={beersList}/>
 

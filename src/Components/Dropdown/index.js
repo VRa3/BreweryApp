@@ -18,6 +18,9 @@ class Dropdown extends React.Component {
     this.setState({ headerTitle: value, listOpen: false });
 
     this.props.loadBeers(value);
+
+    const { columnId } = this.props;
+    localStorage.setItem(`column_${columnId}`, `${value}`);
   };
 
   populateDropdownOptions = () => {
