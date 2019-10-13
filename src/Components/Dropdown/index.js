@@ -27,7 +27,7 @@ class Dropdown extends React.Component {
   };
 
   render() {
-    const { headerTitle, listOpen, userHasSelected } = this.state;
+    const { headerTitle, listOpen } = this.state;
 
     return (
       <div className='dropdown'>

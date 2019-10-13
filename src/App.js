@@ -47,13 +47,20 @@ class App extends React.Component {
 
   render() {
 
+    const { dataFetched, brewersList, apiData } = this.state;
+
     return (
       <div className='content'>
         <div className='container'>
           <MainHeader/>
 
           <div>
-            <BrewerColumn brewersList={this.state.brewersList}/>
+            { dataFetched ?
+              <BrewerColumn apiData={apiData} brewersList={brewersList}/>
+            :
+              <BrewerColumn brewersList={brewersList}/>
+            }
+
           </div>
         </div>
       </div>
