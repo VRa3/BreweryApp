@@ -13,10 +13,22 @@ class BrewerColumn extends React.Component {
     }
   }
 
+  sortByName = function ( a, b ) {
+    if ( a.name < b.name ){
+      return -1;
+    }
+    if ( a.name > b.name ){
+      return 1;
+    }
+      return 0;
+    }
+
   loadBeers = brewer => {
     const { apiData } = this.state;
 
     const filteredBeersArray = apiData.filter(item => item.brewer === brewer);
+
+    filteredBeersArray.sort( this.sortByName );
 
     this.setState({
       brewerName: brewer,
