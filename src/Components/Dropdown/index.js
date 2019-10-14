@@ -34,7 +34,7 @@ class Dropdown extends React.Component {
     const {localStorageLoaded} = this.state;
     const storageItem = localStorage.getItem(`column_${columnId}`);
 
-    if (columnId && !localStorageLoaded) {
+    if (columnId && !localStorageLoaded && storageItem) {
       this.setState({ headerTitle: storageItem, localStorageLoaded: true })
     }
   };
