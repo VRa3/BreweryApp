@@ -2,7 +2,8 @@
   position: relative;
 
   &__header {
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
   }
 
   &__title {
@@ -21,6 +22,7 @@
 
   &__list {
     position: absolute;
+    z-index: 1;
     top: 100%;
     left: 0;
     overflow: auto;
@@ -35,6 +37,7 @@
       padding: 6px 10px;
       color: $color-white;
       font-size: 14px;
+      cursor: pointer;
     }
   }
 }

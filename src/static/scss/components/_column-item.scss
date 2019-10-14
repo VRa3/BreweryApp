@@ -1,8 +1,14 @@
 .column-item {
+  margin: 0 auto 30px auto;
   border-radius: $radius-primary;
   border: 2px dashed $color-primary;
   padding: 15px;
-  width: 30%;
+  width: 100%;
+  max-width: 440px;
+
+  @include media-breakpoint-up(lg) {
+    width: 30%;
+  }
 
   &__heading {
     margin-bottom: 0;
@@ -14,10 +20,15 @@
 
   &__load-button {
     display: block;
-    margin: 15px auto 0;
+    margin: 16px auto 0;
     border: none;
     padding: 10px 30px;
     background-color: $color-primary;
     color: $color-white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+    }
   }
 }
