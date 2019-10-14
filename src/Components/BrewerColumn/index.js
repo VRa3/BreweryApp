@@ -27,15 +27,17 @@ class BrewerColumn extends React.Component {
   loadBeers = brewer => {
     const { apiData } = this.state;
 
-    const filteredBeersArray = apiData.filter(item => item.brewer === brewer);
+    if (apiData) {
+      const filteredBeersArray = apiData.filter(item => item.brewer === brewer);
 
-    filteredBeersArray.sort( this.sortByName );
+      filteredBeersArray.sort( this.sortByName );
 
-    this.setState({
-      brewerName: brewer,
-      beersList: filteredBeersArray,
-      loaderMultiplier: 1
-    });
+      this.setState({
+        brewerName: brewer,
+        beersList: filteredBeersArray,
+        loaderMultiplier: 1
+      });
+    }
   };
 
   increaseMultiplier = () => {

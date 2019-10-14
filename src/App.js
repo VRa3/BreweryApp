@@ -59,7 +59,7 @@ class App extends React.Component {
 
   render() {
 
-    const { dataFetched, brewersList, apiData } = this.state;
+    const { dataFetched } = this.state;
 
     return (
       <div className='content'>

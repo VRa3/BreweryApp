@@ -5,7 +5,7 @@ import ListItem from "./ListItem";
 class Dropdown extends React.Component {
   state = {
     listOpen: false,
-    userHasSelected: false,
+    localStorageLoaded: false,
     headerTitle: 'Select brewer',
   };
 
@@ -28,6 +28,20 @@ class Dropdown extends React.Component {
 
     return brewersArray.map(item => <ListItem selectOption={this.selectOption} key={item} brewerName={item}/>)
   };
+
+  getBrewerFromLocalStorage = () => {
+    const {columnId} = this.props;
+    const {localStorageLoaded} = this.state;
+    const storageItem = localStorage.getItem(`column_${columnId}`);
+
+    if (columnId && !localStorageLoaded) {
+      this.setState({ headerTitle: storageItem, localStorageLoaded: true })
+    }
+  };
+
+  componentDidUpdate() {
+    this.getBrewerFromLocalStorage();
+  }
 
   render() {
     const { headerTitle, listOpen } = this.state;
