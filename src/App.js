@@ -2,6 +2,7 @@ import React from 'react';
 import './static/scss/main.scss';
 import MainHeader from "./Components/MainHeader";
 import BrewerColumn from "./Components/BrewerColumn";
+import SettingsModal from "./Components/SettingsModal";
 
 class App extends React.Component {
   state = {
@@ -35,7 +36,7 @@ class App extends React.Component {
     return [1, 2, 3].map(id => <BrewerColumn key={id} brewersList={brewersList}/> )
   };
 
-  componentDidMount() {
+  fetchApiData = () => {
     // Fetch URL is coming from package.json -> http://ontariobeerapi.ca/
     fetch(`/products/`)
       .then(resp => resp.json())
@@ -45,9 +46,11 @@ class App extends React.Component {
           dataFetched: true
         });
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => { console.log(error)})
+  };
+
+  componentDidMount() {
+    this.fetchApiData()
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -65,6 +68,8 @@ class App extends React.Component {
       <div className='content'>
         <div className='container'>
           <MainHeader/>
+
+          <SettingsModal/>
 
           <div className='column-row'>
             { dataFetched ?
