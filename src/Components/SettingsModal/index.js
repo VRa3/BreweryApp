@@ -2,18 +2,26 @@ import React from 'react';
 import Modal from "../Modal";
 
 class SettingsModal extends React.Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
-      isShowing: false
+      isShowing: false,
+      lightTheme: true,
+      amountToShow: 15,
+      sortingBy: 'name'
     }
-}
+  }
 
   openModalHandler = () => { this.setState({ isShowing: true }) };
 
   closeModalHandler = () => { this.setState({ isShowing: false }) };
+
+  toggleThemeColor = () => { this.setState({ lightTheme: !this.state.lightTheme }) };
+
+  setAmountToShow = (value) => { this.setState({ amountToShow: Number(value) }) };
+
+  setSortingType = (value) => { this.setState({ sortingBy: value }) };
 
   render() {
     return (
@@ -25,18 +33,31 @@ class SettingsModal extends React.Component {
       </div>
 
       { this.state.isShowing ?
-        <div onClick={this.closeModalHandler} className='back-drop'>
+        <div className='back-drop'>
           <Modal show={this.state.isShowing} close={this.closeModalHandler}>
-            <div>
-              1. Layout theme
+
+            <div className="custom-field">
+              <label className="custom-field__label" htmlFor="themeColor">Dark mode?</label>
+              <input onClick={this.toggleThemeColor} className="custom-field__input" id="themeColor" type="checkbox"/>
             </div>
 
-            <div>
-              2. Number of loaded elements
+            <div className="custom-field">
+              <label className="custom-field__label" htmlFor="listingAmount">How many elements should be loaded on list?</label>
+
+              <select onChange={(e) => this.setAmountToShow(e.target.value)} className="custom-field__select" name="listingAmount" id="listingAmount">
+                <option value="15">15</option>
+                <option value="30">30</option>
+              </select>
             </div>
 
-            <div>
-              3. Sorting by : name, price, type - should sort already loaded beers
+            <div className="custom-field">
+              <label className="custom-field__label" htmlFor="sortListingBy">Sorting type in listing:</label>
+
+              <select onChange={(e) => this.setSortingType(e.target.value)} className="custom-field__select" name="sortListingBy" id="sortListingBy">
+                <option value="name">name</option>
+                <option value="price">price</option>
+                <option value="type">type</option>
+              </select>
             </div>
           </Modal>
         </div>

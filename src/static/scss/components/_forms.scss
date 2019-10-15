@@ -1,0 +1,20 @@
+.custom-field {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  &__label {
+    margin: 0 15px 0 0;
+  }
+
+  &__input,
+  &__select {
+    flex: 0 0 80px;
+    cursor: pointer;
+  }
+}

@@ -86,7 +86,7 @@ class Product extends React.Component {
         </div>
 
         { this.state.isShowing ?
-          <div onClick={this.closeModalHandler} className='back-drop'>
+          <div className='back-drop'>
             <Modal show={this.state.isShowing} close={this.closeModalHandler}>
 
               <figure>
