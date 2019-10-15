@@ -5,7 +5,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  background: $color-background;
+  background: var(--color-background-color);
   min-height: 100%;
   line-height: 1.2;
   @include font-Montserrat;

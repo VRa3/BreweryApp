@@ -1,7 +1,7 @@
 .product-card {
   display: flex;
   align-content: space-between;
-  background-color: $color-white;
+  background-color: var(--color-font);
   padding: 10px;
 
   &:first-child {

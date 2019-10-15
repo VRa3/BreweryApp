@@ -80,3 +80,19 @@ $color-primary: setColor(blue, grayish);
 // BORDERS
 
 $radius-primary: 8px;
+
+:root {
+  --color-primary: rgb(88, 98, 139);
+  --color-primary-darken: rgb(68, 76, 108);
+  --color-font: rgb(255, 255, 255);
+  --color-font-contrast: rgb(54, 54, 54);
+  --color-background-color: rgb(221, 221, 221);
+}
+
+[data-theme="dark"] {
+  --color-primary: rgb(114, 129, 149);
+  --color-primary-darken: rgb(60, 76, 137);
+  --color-font: rgb(255, 255, 255);
+  --color-font-contrast: rgb(221, 221, 221);
+  --color-background-color: rgb(39, 44, 65);
+}

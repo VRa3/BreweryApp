@@ -1,7 +1,7 @@
 .column-item {
   margin: 0 auto 30px auto;
   border-radius: $radius-primary;
-  border: 2px dashed $color-primary;
+  border: 2px dashed var(--color-primary);
   padding: 15px;
   width: 100%;
   max-width: 440px;
@@ -23,12 +23,12 @@
     margin: 16px auto 0;
     border: none;
     padding: 10px 30px;
-    background-color: $color-primary;
-    color: $color-white;
+    background-color: var(--color-primary);
+    color: var(--color-font);
     cursor: pointer;
 
     &:hover {
-      background-color: darken($color-primary, 10%);
+      background-color: var(--color-primary-darken)
     }
   }
 }

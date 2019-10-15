@@ -17,7 +17,19 @@ class SettingsModal extends React.Component {
 
   closeModalHandler = () => { this.setState({ isShowing: false }) };
 
-  toggleThemeColor = () => { this.setState({ lightTheme: !this.state.lightTheme }) };
+  toggleThemeColor = () => {
+    this.setState({ lightTheme: !this.state.lightTheme });
+
+    const switchTheme = () => {
+      if (this.state.lightTheme) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    };
+
+    switchTheme();
+  };
 
   setAmountToShow = (value) => { this.setState({ amountToShow: Number(value) }) };
 
