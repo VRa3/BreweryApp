@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from "../Modal";
+import ControlledCheckbox from "../ControlledCheckbox";
 
 class SettingsModal extends React.Component {
   constructor(props) {
@@ -48,10 +49,7 @@ class SettingsModal extends React.Component {
         <div className='back-drop'>
           <Modal show={this.state.isShowing} close={this.closeModalHandler}>
 
-            <div className="custom-field">
-              <label className="custom-field__label" htmlFor="themeColor">Dark mode?</label>
-              <input onClick={this.toggleThemeColor} className="custom-field__input" id="themeColor" type="checkbox"/>
-            </div>
+            <ControlledCheckbox lightTheme={this.state.lightTheme} toggleThemeColor={this.toggleThemeColor}/>
 
             <div className="custom-field">
               <label className="custom-field__label" htmlFor="listingAmount">How many elements should be loaded on list?</label>
