@@ -1,22 +1,14 @@
-import React from 'react';
+import React, {  useState } from 'react';
 
-class ControlledCheckbox extends React.Component {
-  state = {
-    isChecked: !this.props.lightTheme
-  };
+const ControlledCheckbox = props => {
+  const [ isChecked, toggleCheck ] = useState(!props.lightTheme);
 
-  handleChange = () => {
-    this.setState( { isChecked: !this.state.isChecked })
-  };
-
-  render() {
-    return (
-      <div className="custom-field">
-        <label className="custom-field__label" htmlFor="themeColor">Dark mode?</label>
-        <input checked={this.state.isChecked} onChange={() => {this.props.toggleThemeColor(); this.handleChange()}} className="custom-field__input" id="themeColor" type="checkbox"/>
-      </div>
-    )
-  }
-}
+  return (
+    <div className='custom-field'>
+      <label className='custom-field__label' htmlFor={props.identificator} >{props.labelValue}</label>
+      <input checked={isChecked} onChange={() => {props.functionToDo(); toggleCheck(!isChecked)}} id={props.identificator} className='custom-field__input' type='checkbox'/>
+    </div>
+  )
+};
 
 export default ControlledCheckbox;
